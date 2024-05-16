@@ -1,0 +1,13 @@
+{{page-title "Login"}}
+
+<Register
+@onClickForm={{this.onHandleClick}}
+@title="Login"
+@idForm="loginForm"
+@buttonText="Login"
+>
+  <label for="">Usuario <input type="text" style="width: 100%;" name="user"></label>
+  <label for="">Contraseña <input type="password" style="width: 100%;" name="password"></label>
+
+</Register>
+{{outlet}}

@@ -1,0 +1,66 @@
+{{page-title "Axis"}}
+<div style="display: block; width:100%">
+    <img style="display: block; width:100%; margin: 0px; " src="assets\images\hotel.png" alt="">
+    <table border style="margin: auto; width:100%; text-aling:center">
+        <tr style="background-color:lightgray">
+
+            <th>Booking id</th>
+            <th>Hotel id</th>
+            <th>Booking Date</th>
+            <th>Description</th>
+            <th>PAX</th>
+            <th colspan="3">Actions</th>
+        </tr>
+        {{#each this.records as |bRecords| }}
+        <tr style="text-align: center;">
+            <td>{{bRecords.bookingId}}</td>
+            <td>{{bRecords.hotelId}}</td>
+            <td>{{bRecords.bookingDate}}</td>
+            <td>{{bRecords.description}}</td>
+            <td>{{bRecords.pax}}</td>
+            <td><button  onclick={{this.onClickEditButton}} style="background-color:orange; border-radius: 5px;">Editar</button></td>
+            <td><button onclick={{this.onClickDeleteButton}} style="background-color: red; border-radius: 5px;">Borrar</button></td>
+            <td ><button onclick={{this.showInvoice}}>
+            <img
+            style="
+            width: 30px;
+            margin-top: 4px;
+            "
+            src="assets\images\ojoIcon.png" alt="">
+            </button>
+            </td>
+
+
+        </tr>
+        {{/each}}
+
+    </table>
+                    <!-- INVOICE -->
+
+        <dialog id="factura"
+        style="
+        margin: auto;
+        width: 80%;
+        height: 90%;
+        "
+        >
+        <div style="
+            width: 100%;
+            height: 100%;
+            background-color: antiquewhite;
+            display: flex;
+        ">
+          div
+        </div>
+        </dialog>
+  <!------------------------------------------------------------->
+
+
+
+
+    <Axis
+     @onClick={{this.setItemsLocalStorage}}>
+    </Axis>
+
+</div>
+{{outlet}}

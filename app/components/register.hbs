@@ -1,0 +1,30 @@
+
+
+<div style="display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    margin:auto;
+    margin-top:100px;
+    height: auto;">
+
+  <form id={{@idForm}}
+    style="border: 1px solid black; padding:10%; box-shadow: 10px 10px 5px 12px gray; border-radius: 20px; ">
+
+    <h1 style="width: 100%;">{{@title}}</h1>
+    <hr style=" margin-bottom: 30px; margin-top:10px;">
+     {{yield}}
+
+    <button type="button" onclick={{@onClickForm}}
+    style="
+    margin-top: 20px;
+    width:30%">
+      {{@buttonText}}
+    </button>
+
+
+  </form>
+
+
+
+</div>

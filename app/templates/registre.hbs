@@ -1,0 +1,35 @@
+{{page-title "Registre"}}
+{{outlet}}
+<Register
+@onClickForm={{this.onHandleClick}}
+@title="Registro"
+@idForm="registerForm"
+@buttonText="Registrarte"
+>
+  <label for="">Email
+    <input type="email" style="width: 100%;" name="email">
+  </label>
+
+  <label for="">Usuario
+    <input type="text" style="width: 100%;" name="user">
+  </label>
+
+  <label for="">Contraseña
+    <input type="password" style="width: 100%;" name="password">
+  </label>
+
+
+  <label for="">Repetir contraseña
+    <input type="password" style="width: 100%;" name="repassword">
+  </label>
+
+
+</Register>
+<Alertmodal
+@successForm={{this.successForm}}
+>
+
+</Alertmodal>
+
+
+
