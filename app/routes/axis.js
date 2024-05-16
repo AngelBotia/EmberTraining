@@ -20,6 +20,8 @@ export default class AxisRoute extends Route {
     }
 
     let axisController = this.controllerFor('axis');
-    axisController.loadRecordsAndSaveInLocalStorage();
+    if (!localStorage.getItem("records")) axisController.initLocalStorage();
+    axisController.loadRecordsToLocalStore();
+
   }
 }

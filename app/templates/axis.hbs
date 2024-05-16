@@ -1,4 +1,21 @@
 {{page-title "Axis"}}
+  <NavBar />
+<div onclick={{this.logOut}} style="
+    align-self: end;
+    width: 2vw;
+    height: 2vw;
+    padding: 1vw;
+"><img
+style="
+    width: 2vw;
+    height: 2vw;
+"
+
+src="assets\images\logOut.png" alt="">
+</div>
+
+
+
 <div style="display: block; width:100%">
     <img style="display: block; width:100%; margin: 0px; " src="assets\images\hotel.png" alt="">
     <table border style="margin: auto; width:100%; text-aling:center">
@@ -20,7 +37,7 @@
             <td>{{bRecords.pax}}</td>
             <td><button  onclick={{this.onClickEditButton}} style="background-color:orange; border-radius: 5px;">Editar</button></td>
             <td><button onclick={{this.onClickDeleteButton}} style="background-color: red; border-radius: 5px;">Borrar</button></td>
-            <td ><button onclick={{this.showInvoice}}>
+            <td><button onclick={{this.showInvoice}}>
             <img
             style="
             width: 30px;

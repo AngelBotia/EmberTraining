@@ -42,9 +42,11 @@ export default class RegistreController extends Controller {
     //guardar en el local storage
     this.saveAsLocalStorage();
 
-    this.showSuccesModal(event);
+    this.showSuccesModal(event,true);
     this.cleanFormInputs(event);
   }
+
+
 
   passwordIsEqual() {
     const { password, rePassword } = this.formData;

@@ -4,23 +4,36 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 const RECORDS = "records";
+const USER_CREDENTIALS = 'user_credential';
 
 export default class AxisController extends Controller {
   @service Axis;
+  @service router;
 
   @tracked records;
 
   @tracked invoiceData;
 
+  // @action
+  // loadRecordsAndSaveInLocalStorage() {
+  //   const recordJSON = JSON.stringify(this.Axis.loadItemsTable());
+  //   // if (!localStorage.getItem(RECORDS)) {
+  //   //   localStorage.setItem(RECORDS, recordJSON);
+  //   // }
+  //   this.loadRecordsToLocalStore();
+  // }
+
   @action
-  loadRecordsAndSaveInLocalStorage() {
-    const recordJSON = JSON.stringify(this.Axis.loadItemsTable());
-    if (!localStorage.getItem(RECORDS)) {
-      localStorage.setItem(RECORDS, recordJSON);
-    }
-    this.loadRecordsToLocalStore();
+  logOut(event) {
+    const jsonVoidObject = JSON.stringify({})
+    localStorage.setItem(USER_CREDENTIALS, jsonVoidObject);
+    this.router.transitionTo('login');
   }
 
+  initLocalStorage(){
+        const jsonVoidObject = JSON.stringify([]);
+        localStorage.setItem(RECORDS, jsonVoidObject);
+  }
   @action
   loadRecordsToLocalStore() {
     const localStorageJSON = localStorage.getItem(RECORDS);
@@ -28,16 +41,16 @@ export default class AxisController extends Controller {
   }
 
   @action
-  showInvoice(event){
+  showInvoice(event) {
     const invoice = document.getElementById('factura');
     const fila = event.target.parentNode.parentNode.parentNode;
-    if(!fila) return;
+    if (!fila) return;
     this.invoiceData = {
       booking_id: fila.cells[0].innerHTML,
       hotelId: fila.cells[1].innerHTML,
       bookingDate: fila.cells[2].innerHTML,
       description: fila.cells[3].innerHTML,
-      pax: fila.cells[4].innerHTML
+      pax: fila.cells[4].innerHTML,
     };
 
     // TODO: generar factura con los datos de la fila
@@ -142,13 +155,13 @@ export default class AxisController extends Controller {
     this.setFormToVoid(formData);
   }
 
-  setFormToVoid(){
+  setFormToVoid() {
     const form = document.getElementById('bookingForm').elements;
-    form.booking_id.value = "";
-    form.b_id.value="";
-    form.b_date.value="";
-    form.b_desc.value="";
-    form.b_pax.value="";
+    form.booking_id.value = '';
+    form.b_id.value = '';
+    form.b_date.value = '';
+    form.b_desc.value = '';
+    form.b_pax.value = '';
   }
 }
 
