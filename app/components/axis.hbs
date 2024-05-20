@@ -1,11 +1,16 @@
 {{yield}}
 <form target="_top" id="bookingForm" style="display: flex; ">
-    <label style="display:flex;  flex-direction: column; " for="">Booking id<input name="booking_id" required oninvalid="this.setCustomValidity(`Introduzca un booking ID`)" oninput="this.setCustomValidity('')"></label>
-    <label style="display:flex;  flex-direction: column; " for="">Hotel id <input name="b_id" required oninvalid="this.setCustomValidity(`Introduzca el identificador del hotel`)" oninput="this.setCustomValidity('')"></label>
-    <label style="display:flex;  flex-direction: column;" for="">Date <input type="date" name="b_date" required oninvalid="this.setCustomValidity(`Introduzca una fecha`)" oninput="this.setCustomValidity('')"></label>
-    <label style="display:flex;  flex-direction: column;" for="">Description <input  name="b_desc" required oninvalid="this.setCustomValidity(`Introduzca una descripcion`)" oninput="this.setCustomValidity('')"></label>
-    <label style="display:flex;  flex-direction: column;" for="">PAX<input value="1" min="1"type="number" name="b_pax" required oninvalid="this.setCustomValidity(`Introduzca el numero de personas`)" oninput="this.setCustomValidity('')"></label>
-
+  <div style="
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;">
+    <label class="label" for="" >Booking id<input class="input disabled" disabled name="booking_id"  required oninvalid="this.setCustomValidity(`Introduzca un booking ID`)" oninput="this.setCustomValidity('')"></label>
+    <label class="label " for="">Hotel id <input class="input disabled" disabled name="b_id" required oninvalid="this.setCustomValidity(`Introduzca el identificador del hotel`)" oninput="this.setCustomValidity('')"></label>
+    <label class="label" for="">Date <input class="input " type="date" name="b_date" required oninvalid="this.setCustomValidity(`Introduzca una fecha`)" oninput="this.setCustomValidity('')"></label>
+    <label class="label" for="">Description <input class="input " name="b_desc" required oninvalid="this.setCustomValidity(`Introduzca una descripcion`)" oninput="this.setCustomValidity('')"></label>
+    <label class="label" for="">PAX<input class="input " value="1" min="1"type="number" name="b_pax" required oninvalid="this.setCustomValidity(`Introduzca el numero de personas`)" oninput="this.setCustomValidity('')"></label>
+  </div>
     <button type="button" onclick={{@onClick}}
     style="
     height: 10%;

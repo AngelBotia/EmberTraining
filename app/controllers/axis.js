@@ -14,14 +14,7 @@ export default class AxisController extends Controller {
 
   @tracked invoiceData;
 
-  // @action
-  // loadRecordsAndSaveInLocalStorage() {
-  //   const recordJSON = JSON.stringify(this.Axis.loadItemsTable());
-  //   // if (!localStorage.getItem(RECORDS)) {
-  //   //   localStorage.setItem(RECORDS, recordJSON);
-  //   // }
-  //   this.loadRecordsToLocalStore();
-  // }
+
 
   @action
   logOut(event) {
@@ -52,23 +45,25 @@ export default class AxisController extends Controller {
       description: fila.cells[3].innerHTML,
       pax: fila.cells[4].innerHTML,
     };
-
-    // TODO: generar factura con los datos de la fila
-
     invoice.showModal();
   }
 
   @action
-  setItemsLocalStorage(event, formData) {
-    formData = this.getFormData(event);
+  setItemsLocalStorage(event,formData) {
 
-    if (!formData.bookingId || !formData.hotelId || !formData.bookingDate)
-      return;
+    if(!formData)  formData = this.getFormData(event);
+
+    if ( !formData.bookingDate || !formData)return;
+
+
 
     if (this.findElementInListByID(formData)) {
       formData = this.updateThisElement(formData);
       return;
     }
+
+    formData.bookingId = Date.now();
+    formData.hotelId = Math.random().toString(36).substr(2, 9).toUpperCase();
 
     let currentLocalStorage = localStorage.getItem(RECORDS);
     currentLocalStorage = currentLocalStorage
@@ -87,6 +82,7 @@ export default class AxisController extends Controller {
   @action
   getFormData(event) {
     const form = document.getElementById('bookingForm').elements;
+
     const objectForm = {
       bookingId: form.booking_id.value,
       hotelId: form.b_id.value,

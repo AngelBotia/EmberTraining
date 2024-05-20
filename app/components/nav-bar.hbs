@@ -1,4 +1,11 @@
-<nav class="menu" style="background-color: lightskyblue;" >
+<nav class="menu" style="
+     background-color: lightskyblue;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+" >
   <LinkTo @route="index" class="menu-index">
     <h1>Axis</h1>
   </LinkTo>
@@ -10,4 +17,5 @@
       Contact
     </LinkTo>
   </div>
+  {{yield}}
 </nav>
